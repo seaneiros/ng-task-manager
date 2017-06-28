@@ -1,0 +1,6 @@
+<div>
+  <div *ngFor="let task of listItems">
+    <span>Task</span>
+    <task-view [task]="task" [clipDescription]="true"></task-view>
+  </div>
+</div>
