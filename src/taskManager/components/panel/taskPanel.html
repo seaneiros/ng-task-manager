@@ -1,1 +1,3 @@
-<div></div>
+<div>--------------------------</div>
+<task-view *ngIf="isViewMode()" [task]="selectedTask"></task-view>
+<task-form *ngIf="!isViewMode()" [task]="selectedTask"></task-form>

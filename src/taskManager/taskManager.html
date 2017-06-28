@@ -1,4 +1,5 @@
 <div>
   Hi
-  <task-list></task-list>
+  <task-list (onViewTask)="openTaskForView($event)" (onEditTask)="openTaskForEdit($event)"></task-list>
+  <task-panel *ngIf="!!selectedTask" [mode]="selectedMode" [selectedTask]="selectedTask"></task-panel>
 </div>
