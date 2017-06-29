@@ -14,7 +14,7 @@ export class TaskListComponent {
 
   @Input() listItems: Task[];
 
-  constructor() {}
+  onlyActive: boolean = true;
 
   viewTask(task: Task) {
     this.onViewTask.emit(task);
