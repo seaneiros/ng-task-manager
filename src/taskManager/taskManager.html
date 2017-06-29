@@ -1,5 +1,10 @@
 <div>
-  Hi
-  <task-list (onViewTask)="openTaskForView($event)" (onEditTask)="openTaskForEdit($event)"></task-list>
-  <task-panel *ngIf="!!selectedTask" [mode]="selectedMode" [selectedTask]="selectedTask"></task-panel>
+  <div (click)="openTaskForCreate()">Add task</div>
+  <task-list [listItems]="taskList" (onViewTask)="openTaskForView($event)" (onEditTask)="openTaskForEdit($event)"></task-list>
+  <task-panel *ngIf="!!selectedTask"
+    [mode]="selectedMode"
+    [selectedTask]="selectedTask"
+    (onSaveTask)="saveNewTask($event)"
+    (onCancel)="clearSelection($event)"
+  ></task-panel>
 </div>

@@ -3,12 +3,17 @@
   [(ngModel)]="task.title"
   type="text"
 />
-<input
+<textarea
   name="description"
   [(ngModel)]="task.description"
   type="text"
-/>
+></textarea>
 <input
   name="deadline"
   [(ngModel)]="task.deadline"
   type="number"/>
+<input
+  name="isActive"
+  [(ngModel)]="task.isActive"
+  type="checkbox"
+/>

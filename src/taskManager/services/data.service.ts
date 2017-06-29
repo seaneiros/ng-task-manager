@@ -18,8 +18,8 @@ export class DataService {
     return taskPresets;
   }
 
-  addTask(title: string, description: string, deadline: number): void {
-    // implement later
+  addTask(task: Task): void {
+    taskPresets.push(task);
   }
 
 }

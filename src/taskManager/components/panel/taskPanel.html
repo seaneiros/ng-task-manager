@@ -1,3 +1,5 @@
 <div>--------------------------</div>
+<div (click)="closePanel()">[close]</div>
 <task-view *ngIf="isViewMode()" [task]="selectedTask"></task-view>
 <task-form *ngIf="!isViewMode()" [task]="selectedTask"></task-form>
+<div *ngIf="isCreateMode()" (click)="submitTaskCreation(selectedTask)">Create</div>

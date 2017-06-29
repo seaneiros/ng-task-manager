@@ -1,26 +1,20 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Task }              from '../../models/task';
-import { DataService }       from '../../services/data.service';
 import { TaskViewComponent } from '../view/taskView.component';
 
 @Component({
     selector: 'task-list',
     templateUrl: 'taskManager/components/list/taskList.html',
-    providers: [ DataService ]
 })
-export class TaskListComponent implements OnInit {
+export class TaskListComponent {
 
   @Output() onViewTask = new EventEmitter<Task>();
   @Output() onEditTask = new EventEmitter<Task>();
 
-  listItems: Task[] = [];
+  @Input() listItems: Task[];
 
-  constructor(private _dataService: DataService) {}
-
-  ngOnInit() {
-    this.listItems = this._dataService.getTasks();
-  }
+  constructor() {}
 
   viewTask(task: Task) {
     this.onViewTask.emit(task);
