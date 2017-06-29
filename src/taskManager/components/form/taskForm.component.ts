@@ -8,4 +8,8 @@ import { Task }             from '../../models/task';
 })
 export class TaskFormComponent {
   @Input() task: Task;
+
+  getDatepickerValue(dateStr: string) {
+    return dateStr ? new Date(dateStr).valueOf() : null;
+  }
 }
