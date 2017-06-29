@@ -1,20 +1,28 @@
-<input
-  name="title"
-  [(ngModel)]="task.title"
-  type="text"
-/>
-<textarea
-  name="description"
-  [(ngModel)]="task.description"
-  type="text"
-></textarea>
-<input
-  name="deadline"
-  [value]="task.deadline | date:'yyyy-MM-dd'"
-  (input)="task.deadline = getDatepickerValue($event.target.value)"
-  type="date"/>
-<input
-  name="isActive"
-  [(ngModel)]="task.isActive"
-  type="checkbox"
-/>
+<div class="task-form">
+  <input
+    class="task-form__title"
+    name="title"
+    [(ngModel)]="task.title"
+    type="text"
+  />
+  <textarea
+    class="task-form__description"
+    name="description"
+    [(ngModel)]="task.description"
+    type="text"
+  ></textarea>
+  <input
+    class="task-form__deadline"
+    name="deadline"
+    [value]="task.deadline | date:'yyyy-MM-dd'"
+    (input)="task.deadline = getDatepickerValue($event.target.value)"
+    type="date"/>
+  <label class="task-form__is-active">
+    Is active task
+    <input
+      name="isActive"
+      [(ngModel)]="task.isActive"
+      type="checkbox"
+    />
+  </label>
+</div>
