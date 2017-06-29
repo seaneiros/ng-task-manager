@@ -1,0 +1,22 @@
+.task-list__item {
+  position: relative;
+  width: 400px;
+  padding: 1em;
+  border: 1px solid #afafaf;
+  margin-bottom: .5em;
+}
+
+.task-list__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.task-list__controls {
+  position: absolute;
+  top: .5em;
+  right: 1em;
+}
+
+.task-list__control {
+  display: inline-block;
+  cursor: pointer;
+}

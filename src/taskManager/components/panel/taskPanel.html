@@ -1,4 +1,11 @@
-<div class="task-panel__close" (click)="closePanel()">[close]</div>
-<task-view class="task-panel__view" *ngIf="isViewMode() && selectedTask" [task]="selectedTask"></task-view>
-<task-form class="task-panel__form" *ngIf="!isViewMode() && selectedTask" [task]="selectedTask"></task-form>
-<div class="task-panel__create" *ngIf="isCreateMode()" (click)="submitTaskCreation(selectedTask)">Create</div>
+<div
+  [ngClass]="{
+      'task-panel': true,
+      'task-panel--closed': !selectedTask
+    }"
+>
+  <div class="task-panel__close" (click)="closePanel()">[close]</div>
+  <task-view *ngIf="isViewMode() && selectedTask" [task]="selectedTask"></task-view>
+  <task-form *ngIf="!isViewMode() && selectedTask" [task]="selectedTask"></task-form>
+  <div class="task-panel__create" *ngIf="isCreateMode()" (click)="submitTaskCreation(selectedTask)">Create</div>
+</div>

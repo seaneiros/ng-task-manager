@@ -11,6 +11,7 @@ export enum SelectionMode {
 @Component({
     selector: 'task-manager',
     templateUrl: 'taskManager/taskManager.html',
+    styleUrls: [ 'taskManager/taskManager.css' ],
     providers: [ DataService ]
 })
 export class TaskManagerComponent implements OnInit {

@@ -6,6 +6,7 @@ import { SelectionMode } from '../../taskManager.component';
 @Component({
     selector: 'task-panel',
     templateUrl: 'taskManager/components/panel/taskPanel.html',
+    styleUrls: [ 'taskManager/components/panel/taskPanel.css' ],
 })
 export class TaskPanelComponent {
   @Input() selectedTask: Task;

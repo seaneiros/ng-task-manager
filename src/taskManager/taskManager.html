@@ -1,11 +1,7 @@
 <div class="task-manager">
-  <div class="task-manager__add-task" (click)="openTaskForCreate()">Add task</div>
+  <div class="task-manager__add-task task-manager__button" (click)="openTaskForCreate()">Add task</div>
   <task-list class="task-manager__list" [listItems]="taskList" (onViewTask)="openTaskForView($event)" (onEditTask)="openTaskForEdit($event)"></task-list>
   <task-panel
-    [ngClass]="{
-      'task-panel': true,
-      'task-panel--closed': !selectedTask
-    }"
     [mode]="selectedMode"
     [selectedTask]="selectedTask"
     (onSaveTask)="saveNewTask($event)"

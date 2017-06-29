@@ -1,0 +1,36 @@
+.task-view {
+}
+
+.task-view__title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: .5em;
+}
+
+.task-view__deadline {
+  color: rgba(0, 0, 0, .6);
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+:host-context(.task-panel) .task-view {
+  font-size: 1.3em;
+}
+
+:host-context(.task-panel) .task-view__title {
+  margin-bottom: 1em;
+}
+
+:host-context(.task-panel) .task-view__deadline {
+  color: #000;
+  font-size: 1em;
+  text-align: left;
+  text-transform: none;
+  font-weight: 600;
+}
+
+:host-context(.task-panel) .task-view__deadline::before {
+  content: 'Must be done till ';
+  font-weight: normal;
+}

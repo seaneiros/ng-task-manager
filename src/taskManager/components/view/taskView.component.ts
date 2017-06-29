@@ -7,6 +7,7 @@ const CLIPPED_LENGTH = 30;
 @Component({
     selector: 'task-view',
     templateUrl: 'taskManager/components/view/taskView.html',
+    styleUrls: [ 'taskManager/components/view/taskView.css' ],
 })
 export class TaskViewComponent {
   @Input() task: Task;

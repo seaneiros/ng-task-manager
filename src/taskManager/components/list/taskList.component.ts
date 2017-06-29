@@ -6,6 +6,7 @@ import { TaskViewComponent } from '../view/taskView.component';
 @Component({
     selector: 'task-list',
     templateUrl: 'taskManager/components/list/taskList.html',
+    styleUrls: [ 'taskManager/components/list/taskList.css' ],
 })
 export class TaskListComponent {
 

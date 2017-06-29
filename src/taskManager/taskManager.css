@@ -1,0 +1,13 @@
+.task-manager {
+  font-size: 14px;
+  font-family: arial;
+}
+
+.task-manager__button {
+  display: inline-block;
+  padding: .5em 1em;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+}

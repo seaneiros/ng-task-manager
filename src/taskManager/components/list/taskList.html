@@ -6,8 +6,10 @@
     </label>
   </div>
   <div class="task-list__item" *ngFor="let task of listItems | filterActive:onlyActive">
-    <div class="task-list__control--view" (click)="viewTask(task)">View</div>
-    <div class="task-list__control--edit" (click)="editTask(task)">Edit</div>
+    <div class="task-list__controls">
+      <div class="task-list__control task-list__control--view" (click)="viewTask(task)">View</div>
+      <div class="task-list__control task-list__control--edit" (click)="editTask(task)">Edit</div>
+    </div>
     <task-view class="task-list__view" [task]="task" [clipDescription]="true"></task-view>
   </div>
 </div>
