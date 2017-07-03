@@ -5,7 +5,15 @@
       <input type="checkbox" [(ngModel)]="onlyActive">
     </label>
   </div>
-  <div class="task-list__item" *ngFor="let task of listItems | filterActive:onlyActive">
+  <div
+    *ngFor="let task of listItems | filterActive:onlyActive"
+    class="task-list__item"
+    [ngClass]="{
+      'task-list__item--expired': isTaskExpired(task),
+      'task-list__item--upcoming': isTaskUpcoming(task)
+    }"
+    data-title={{task.title}}
+  >
     <div class="task-list__controls">
       <div class="task-list__control task-list__control--view" (click)="viewTask(task)">View</div>
       <div class="task-list__control task-list__control--edit" (click)="editTask(task)">Edit</div>

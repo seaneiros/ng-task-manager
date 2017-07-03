@@ -3,6 +3,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task }              from '../../models/task';
 import { TaskViewComponent } from '../view/taskView.component';
 
+const DAY = 24 * 60 * 60 * 1000;
+
 @Component({
     selector: 'task-list',
     templateUrl: 'taskManager/components/list/taskList.html',
@@ -23,6 +25,15 @@ export class TaskListComponent {
 
   editTask(task: Task) {
     this.onEditTask.emit(task);
+  }
+
+  isTaskExpired(task: Task) {
+    return task.deadline < Date.now();
+  }
+
+  isTaskUpcoming(task: Task) {
+    const now = Date.now();
+    return task.deadline <= now + 3 * DAY && task.deadline > now;
   }
 
 }

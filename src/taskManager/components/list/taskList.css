@@ -6,6 +6,14 @@
   margin-bottom: .5em;
 }
 
+.task-list__item--upcoming {
+  background-color: rgba(255, 217, 130, 0.3);
+}
+
+.task-list__item--expired {
+  background-color: rgba(255, 0, 0, .3);
+}
+
 .task-list__item:last-of-type {
   margin-bottom: 0;
 }

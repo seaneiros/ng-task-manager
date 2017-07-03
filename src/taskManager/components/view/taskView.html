@@ -1,5 +1,5 @@
 <div class="task-view">
   <div class="task-view__title">{{task.title}}</div>
-  <div class="task-view__description">{{getDescription()}}</div>
+  <div class="task-view__description" *ngIf="!clipDescription">{{task.description}}</div>
   <div class="task-view__deadline">{{task.deadline | date}}</div>
 </div>

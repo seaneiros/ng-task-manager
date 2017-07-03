@@ -4,14 +4,15 @@
 .task-view__title {
   font-size: 1.2em;
   font-weight: 600;
-  margin-bottom: .5em;
 }
 
 .task-view__deadline {
+  position: absolute;
+  bottom: .5em;
+  right: 1.5em;
   color: rgba(0, 0, 0, .6);
   font-size: 10px;
   text-transform: uppercase;
-  text-align: right;
 }
 
 :host-context(.task-panel) .task-view {
@@ -23,6 +24,9 @@
 }
 
 :host-context(.task-panel) .task-view__deadline {
+  position: relative;
+  bottom: auto;
+  right: auto;
   color: #000;
   font-size: 1em;
   text-align: left;
