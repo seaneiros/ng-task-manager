@@ -27,3 +27,14 @@
   left: 1em;
   cursor: pointer;
 }
+
+.task-panel__create {
+  display: inline-block;
+  margin-top: 3em;
+  padding: .5em 1em;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}

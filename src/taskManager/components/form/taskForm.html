@@ -4,25 +4,31 @@
     name="title"
     [(ngModel)]="task.title"
     type="text"
+    placeholder="Title"
   />
   <textarea
     class="task-form__description"
     name="description"
     [(ngModel)]="task.description"
     type="text"
+    placeholder="Type post description here"
   ></textarea>
-  <input
-    class="task-form__deadline"
-    name="deadline"
-    [value]="task.deadline | date:'yyyy-MM-dd'"
-    (input)="task.deadline = getDatepickerValue($event.target.value)"
-    type="date"/>
-  <label class="task-form__is-active">
-    Is active task
+  <label>
+    Deadline
+    <input
+      class="task-form__deadline"
+      name="deadline"
+      [value]="task.deadline | date:'yyyy-MM-dd'"
+      (input)="task.deadline = getDatepickerValue($event.target.value)"
+      type="date"/>
+  </label>
+  <label class="task-form__is-active" *ngIf="!isNewTask">
+    {{task.isActive ? 'Close task' : 'Reopen task'}}
     <input
       name="isActive"
       [(ngModel)]="task.isActive"
       type="checkbox"
+      style="display: none;"
     />
   </label>
 </div>

@@ -1,8 +1,8 @@
 <div class="task-list">
   <div class="task-list__filters">
-    <label>
-      Show only active
-      <input type="checkbox" [(ngModel)]="onlyActive">
+    <label class="task-filter task-filter--only-active">
+      {{onlyActive ? 'Show closed' : 'Hide closed'}}
+      <input type="checkbox" [(ngModel)]="onlyActive" style="display: none;">
     </label>
   </div>
   <div

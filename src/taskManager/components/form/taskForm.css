@@ -1,0 +1,28 @@
+.task-form {
+
+}
+
+.task-form__title,
+.task-form__description {
+  display: block;
+  width: 80%;
+  padding: .4em;
+  margin: .5em 0;
+  border: 1px solid rgba(0, 0, 0, .3);
+  background: #fff;
+}
+
+.task-form__description {
+  resize: vertical;
+}
+
+.task-form__is-active {
+  display: inline-block;
+  margin-left: 2em;
+  padding: .3em .5em;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}

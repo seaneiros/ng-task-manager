@@ -28,3 +28,14 @@
   display: inline-block;
   cursor: pointer;
 }
+
+.task-filter {
+  display: inline-block;
+  padding: .3em .5em;
+  margin: 1em 0;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+  font-size: .7em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
