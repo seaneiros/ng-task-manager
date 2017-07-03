@@ -1,10 +1,12 @@
 export class Task {
 
   private _id: string;
+  private _isActive: boolean = true;
 
-  constructor(private _title: string = '', private _description: string = '', private _deadline: number = Date.now(), private _isActive: boolean = true) {
+  constructor(private _title: string = '', private _description: string = '', private _deadline: number = Date.now(), public orderIndex: number = 0) {
     const salt: string = (Math.random() * 1000).toFixed();
     this._id = `T-${Date.now()}-${salt}`;
+
   }
 
   get id(): string {

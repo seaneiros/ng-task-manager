@@ -10,7 +10,7 @@ const presets = [
   { title: 'Long task', description: 'some rreeeeeeeeeeeaaaally loooooooong description', deadline: NOW + 3 * DAY },
 ];
 
-const taskPresets: Task[] = presets.map( ({ title, description, deadline }) => new Task(title, description, deadline) )
+const taskPresets: Task[] = presets.map( ({ title, description, deadline }, idx) => new Task(title, description, deadline, idx) )
 
 export class DataService {
 
@@ -20,6 +20,29 @@ export class DataService {
 
   addTask(task: Task): void {
     taskPresets.push(task);
+  }
+
+  popUp(task: Task) {
+    const curIdx = task.orderIndex;
+
+    if (curIdx === 0) {
+      return;
+    }
+
+    taskPresets[curIdx].orderIndex--;
+    taskPresets[curIdx - 1].orderIndex++;
+
+  }
+
+  pushDown(task: Task) {
+    const curIdx = task.orderIndex;
+
+    if (curIdx === taskPresets.length - 1) {
+      return;
+    }
+
+    taskPresets[curIdx].orderIndex++;
+    taskPresets[curIdx + 1].orderIndex--;
   }
 
 }
