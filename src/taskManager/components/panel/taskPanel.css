@@ -10,6 +10,13 @@
   transition: transform .3s ease;
 }
 
+.task-panel__content {
+  position: absolute;
+  width: calc(100% - 1em);
+  height: calc(100% - 8em);
+  overflow: auto;
+}
+
 .task-panel--closed {
   transform: translateX(100%);
 }

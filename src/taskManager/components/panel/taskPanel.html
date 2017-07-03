@@ -5,7 +5,9 @@
     }"
 >
   <div class="task-panel__close" (click)="closePanel()">[close]</div>
-  <task-view *ngIf="isViewMode() && selectedTask" [task]="selectedTask"></task-view>
-  <task-form *ngIf="!isViewMode() && selectedTask" [task]="selectedTask"></task-form>
-  <div class="task-panel__create" *ngIf="isCreateMode()" (click)="submitTaskCreation(selectedTask)">Create</div>
+  <div class="task-panel__content">
+    <task-view *ngIf="isViewMode() && selectedTask" [task]="selectedTask"></task-view>
+    <task-form *ngIf="!isViewMode() && selectedTask" [task]="selectedTask"></task-form>
+    <div class="task-panel__create" *ngIf="isCreateMode()" (click)="submitTaskCreation(selectedTask)">Create</div>
+  </div>
 </div>
