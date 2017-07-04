@@ -8,6 +8,7 @@ import { TaskViewComponent }    from './components/view/taskView.component';
 import { TaskFormComponent }    from './components/form/taskForm.component';
 import { TaskPanelComponent }   from './components/panel/taskPanel.component';
 import { ActivePipe }           from './components/list/active.pipe';
+import { SortByIndexPipe }      from './components/list/sort-by-index.pipe';
 
 @NgModule({
   imports:      [
@@ -21,7 +22,8 @@ import { ActivePipe }           from './components/list/active.pipe';
     TaskViewComponent,
     TaskFormComponent,
     TaskPanelComponent,
-    ActivePipe
+    ActivePipe,
+    SortByIndexPipe
   ],
   bootstrap:    [ TaskManagerComponent ]
 })

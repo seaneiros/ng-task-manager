@@ -1,6 +1,14 @@
 <div class="task-manager">
   <div class="task-manager__add-task task-manager__button" (click)="openTaskForCreate()">Add task</div>
-  <task-list class="task-manager__list" [listItems]="taskList" (onViewTask)="openTaskForView($event)" (onEditTask)="openTaskForEdit($event)"></task-list>
+  <task-list
+    class="task-manager__list"
+    [listItems]="taskList"
+    (onViewTask)="openTaskForView($event)"
+    (onEditTask)="openTaskForEdit($event)"
+    (onPopUp)="popTaskUp($event)"
+    (onPushDown)="pushTaskDown($event)"
+  >
+  </task-list>
   <task-panel
     [mode]="selectedMode"
     [selectedTask]="selectedTask"

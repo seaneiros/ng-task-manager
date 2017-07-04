@@ -44,7 +44,7 @@ export class TaskManagerComponent implements OnInit {
 
   openTaskForCreate() {
     this.selectedMode = SelectionMode.CREATE;
-    this.selectedTask = new Task();
+    this.selectedTask = new Task('','', Date.now(), this.taskList.length);
   }
 
   saveNewTask(task: Task) {
@@ -52,5 +52,13 @@ export class TaskManagerComponent implements OnInit {
       this._dataService.addTask(task);
       this.clearSelection();
     }
+  }
+
+  popTaskUp(task: Task) {
+    this._dataService.popUp(task);
+  }
+
+  pushTaskDown(task: Task) {
+    this._dataService.pushDown(task);
   }
 }

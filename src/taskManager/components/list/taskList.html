@@ -6,7 +6,7 @@
     </label>
   </div>
   <div
-    *ngFor="let task of listItems | filterActive:onlyActive"
+    *ngFor="let task of listItems | filterActive:onlyActive | sortByOrderIndex"
     class="task-list__item"
     [ngClass]="{
       'task-list__item--expired': isTaskExpired(task),
@@ -14,6 +14,10 @@
     }"
     data-title={{task.title}}
   >
+    <div class="task-list__order">
+      <svg *ngIf="task.orderIndex !== 0" class="task-list__control task-list__control--up" (click)="popTaskUp(task)" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M413.1,327.3l-1.8-2.1l-136-156.5c-4.6-5.3-11.5-8.6-19.2-8.6c-7.7,0-14.6,3.4-19.2,8.6L101,324.9l-2.3,2.6  C97,330,96,333,96,336.2c0,8.7,7.4,15.8,16.6,15.8v0h286.8v0c9.2,0,16.6-7.1,16.6-15.8C416,332.9,414.9,329.8,413.1,327.3z"/></svg>
+      <svg *ngIf="task.orderIndex !== listItems.length - 1" class="task-list__control task-list__control--down" (click)="pushTaskDown(task)" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M413.1,327.3l-1.8-2.1l-136-156.5c-4.6-5.3-11.5-8.6-19.2-8.6c-7.7,0-14.6,3.4-19.2,8.6L101,324.9l-2.3,2.6  C97,330,96,333,96,336.2c0,8.7,7.4,15.8,16.6,15.8v0h286.8v0c9.2,0,16.6-7.1,16.6-15.8C416,332.9,414.9,329.8,413.1,327.3z"/></svg>
+    </div>
     <div class="task-list__controls">
       <svg class="task-list__control task-list__control--view" (click)="viewTask(task)" viewBox="0 0 20 11.36" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2" id="Layer_2"><g data-name="Layer 1" id="Layer_1-2"><path class="cls-1" d="M10,1a9.37,9.37,0,0,1,6.67,2.76l1.92,1.92L16.67,7.6a9.43,9.43,0,0,1-13.34,0L1.41,5.68,3.33,3.76A9.37,9.37,0,0,1,10,1m0-1A10.4,10.4,0,0,0,2.63,3.05L0,5.68,2.63,8.3a10.43,10.43,0,0,0,14.75,0L20,5.68,17.38,3.05A10.4,10.4,0,0,0,10,0Z"/><path class="cls-1" d="M10,2.68a3,3,0,0,0-.87.14,1.5,1.5,0,1,1-2,2A3,3,0,0,0,7,5.68a3,3,0,1,0,3-3Z"/></g></g></svg>
       <svg class="task-list__control task-list__control--edit" (click)="editTask(task)" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2" id="Layer_2"><g data-name="Layer 1" id="Layer_1-2"><rect class="cls-1" height="4.86" transform="translate(-3.77 7.81) rotate(-45)" width="11.44" x="1.83" y="6.02"/><path class="cls-2" d="M15.73,2.4,13.6.27a.93.93,0,0,0-1.31,0L11.11,1.45l3.44,3.43,1.18-1.18A.93.93,0,0,0,15.73,2.4Z"/><path d="M0,15.28A.61.61,0,0,0,.72,16L4,15.45.55,12Z"/></g></g></svg>

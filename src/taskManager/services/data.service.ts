@@ -29,9 +29,8 @@ export class DataService {
       return;
     }
 
-    taskPresets[curIdx].orderIndex--;
-    taskPresets[curIdx - 1].orderIndex++;
-
+    taskPresets.find( i => i.orderIndex === curIdx - 1 ).orderIndex++;
+    task.orderIndex--;
   }
 
   pushDown(task: Task) {
@@ -41,8 +40,8 @@ export class DataService {
       return;
     }
 
-    taskPresets[curIdx].orderIndex++;
-    taskPresets[curIdx + 1].orderIndex--;
+    taskPresets.find( i => i.orderIndex === curIdx + 1 ).orderIndex--;
+    task.orderIndex++;
   }
 
 }
