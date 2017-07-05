@@ -1,25 +1,27 @@
-import { Task } from '../models/task';
+import { Injectable }     from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Task }           from '../models/task';
+import { Observable }     from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
-const NOW = Date.now();
-const DAY = 24 * 60 * 60 * 1000;
 
-const presets = [
-  { title: 'Upcoming task', description: 'some description', deadline: NOW + DAY },
-  { title: 'Task faaaar late', description: 'some description here', deadline: NOW + 30 * DAY },
-  { title: 'Expired task', description: 'omg....expired!', deadline: NOW - DAY },
-  { title: 'Long task', description: 'some rreeeeeeeeeeeaaaally loooooooong description', deadline: NOW + 3 * DAY },
-];
-
-const taskPresets: Task[] = presets.map( ({ title, description, deadline }, idx) => new Task(title, description, deadline, idx) )
-
+@Injectable()
 export class DataService {
 
-  getTasks(): Task[] {
-    return taskPresets;
+  private _taskPresets: Task[] = [];
+
+  constructor(private _http: Http) { }
+
+  getTasks(): Observable<Task[]> {
+    return this._http.get('presets.json')
+      .map( (data: Response) => {
+        this._taskPresets = data.json().map( ({ title, description, deadline }: any, idx: number) => new Task(title, description, deadline, idx) );
+        return this._taskPresets;
+      } );
   }
 
   addTask(task: Task): void {
-    taskPresets.push(task);
+    this._taskPresets.push(task);
   }
 
   popUp(task: Task) {
@@ -29,18 +31,18 @@ export class DataService {
       return;
     }
 
-    taskPresets.find( i => i.orderIndex === curIdx - 1 ).orderIndex++;
+    this._taskPresets.find( i => i.orderIndex === curIdx - 1 ).orderIndex++;
     task.orderIndex--;
   }
 
   pushDown(task: Task) {
     const curIdx = task.orderIndex;
 
-    if (curIdx === taskPresets.length - 1) {
+    if (curIdx === this._taskPresets.length - 1) {
       return;
     }
 
-    taskPresets.find( i => i.orderIndex === curIdx + 1 ).orderIndex--;
+    this._taskPresets.find( i => i.orderIndex === curIdx + 1 ).orderIndex--;
     task.orderIndex++;
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from './models/task';
-import { DataService } from './services/data.service';
+import { Task }              from './models/task';
+import { DataService }       from './services/data.service';
 
 export enum SelectionMode {
   VIEW,
@@ -24,7 +24,7 @@ export class TaskManagerComponent implements OnInit {
   constructor(private _dataService: DataService) {}
 
   ngOnInit() {
-    this.taskList = this._dataService.getTasks();
+    this._dataService.getTasks().subscribe( data => this.taskList = data);
   }
 
   clearSelection() {

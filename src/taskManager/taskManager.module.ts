@@ -1,6 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { BrowserModule }        from '@angular/platform-browser';
 import { FormsModule }          from '@angular/forms';
+import { HttpModule }           from '@angular/http';
 
 import { TaskManagerComponent } from './taskManager.component';
 import { TaskListComponent }    from './components/list/taskList.component';
@@ -13,7 +14,8 @@ import { SortByIndexPipe }      from './components/list/sort-by-index.pipe';
 @NgModule({
   imports:      [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   exports:      [ TaskManagerComponent ],
   declarations: [
